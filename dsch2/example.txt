@@ -1,0 +1,20 @@
+// DSCH 2.7a
+// 5/1/2021 4:19:38 PM
+// example
+
+module example( ~Reset,MainClock);
+ input ~Reset,MainClock;
+ not #(10) inv(w2,w1);
+ and #(9) and2(w4,w2,w3);
+ and #(9) and2(w6,w5,w1);
+ not #(10) inv(w5,w3);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 ~Reset=~~Reset;
+#2000 MainClock=~MainClock;
+
+// Simulation parameters
+// ~Reset CLK 10 10
+// MainClock CLK 20.000 20.000
